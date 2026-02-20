@@ -114,7 +114,7 @@
 
 .intro-title {
   font-family: var(--font-display);
-  font-size: 42px;
+  font-size: clamp(32px, 10vw, 42px);
   font-weight: 700;
   color: var(--dark);
   line-height: 1.15;
@@ -123,7 +123,7 @@
 }
 
 .intro-title-sub {
-  font-size: 46px;
+  font-size: clamp(36px, 11vw, 46px);
   background: linear-gradient(135deg, #e85a3a 0%, #ff9b7a 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -131,7 +131,7 @@
 }
 
 .intro-desc {
-  font-size: 15px;
+  font-size: clamp(14px, 4.5vw, 15px);
   color: var(--medium);
   line-height: 1.65;
   font-weight: 500;
@@ -184,7 +184,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.18) 50%, transparent 100%);
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.18) 50%, transparent 100%);
   background-size: 200% auto;
   animation: shimmer 2.5s linear infinite;
 }

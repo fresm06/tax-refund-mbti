@@ -119,7 +119,7 @@
 
 .question-text {
   font-family: var(--font-display);
-  font-size: 22px;
+  font-size: clamp(19px, 6vw, 22px);
   font-weight: 700;
   color: var(--dark);
   line-height: 1.45;
@@ -152,8 +152,13 @@
   overflow: hidden;
 }
 
-.answer-btn:nth-child(1) { animation-delay: 0.2s; }
-.answer-btn:nth-child(2) { animation-delay: 0.3s; }
+.answer-btn:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+.answer-btn:nth-child(2) {
+  animation-delay: 0.3s;
+}
 
 .answer-btn::before {
   content: '';
@@ -207,7 +212,7 @@
 }
 
 .answer-text {
-  font-size: 14.5px;
+  font-size: clamp(13.5px, 4.5vw, 14.5px);
   font-weight: 500;
   color: var(--dark);
   line-height: 1.55;
