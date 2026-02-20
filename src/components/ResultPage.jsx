@@ -128,10 +128,10 @@ export default function ResultPage({ result, onRestart, onNavigate }) {
           </button>
         </nav>
 
-        <p className="result-footer">* 본 테스트는 재미 목적으로만 활용해주세요 😊</p>
-
-        <Footer onNavigate={onNavigate} />
+        <p className="result-disclaimer">* 본 테스트는 재미 목적으로만 활용해주세요 😊</p>
       </div>
+
+      <Footer onNavigate={onNavigate} />
     </section>
   )
 }

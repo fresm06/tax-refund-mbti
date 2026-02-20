@@ -1,10 +1,15 @@
 .site-footer {
   width: 100%;
-  background: rgba(255, 255, 255, 0.75);
-  backdrop-filter: blur(8px);
-  border-top: 1px solid rgba(255, 181, 167, 0.25);
-  padding: 18px 24px max(18px, env(safe-area-inset-bottom));
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(10px);
+  border-top: 1.5px solid rgba(255, 181, 167, 0.3);
+  padding: 16px 24px max(20px, env(safe-area-inset-bottom));
   text-align: center;
+  /* flex container 안에서 항상 맨 아래로 */
+  margin-top: auto;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 20;
 }
 
 .footer-inner {
