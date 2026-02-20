@@ -1,0 +1,210 @@
+/* ── Intro Page ── */
+.intro-page {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100dvh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: linear-gradient(160deg, #fff5f2 0%, #fde8e0 40%, #fef0e4 100%);
+}
+
+/* Background blobs */
+.intro-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(56px);
+  pointer-events: none;
+  animation: blobPulse 7s ease-in-out infinite;
+}
+
+.blob-1 {
+  width: 280px;
+  height: 280px;
+  background: rgba(255, 181, 167, 0.48);
+  top: -60px;
+  right: -60px;
+  animation-duration: 8s;
+}
+
+.blob-2 {
+  width: 220px;
+  height: 220px;
+  background: rgba(252, 213, 206, 0.55);
+  bottom: -50px;
+  left: -50px;
+  animation-duration: 11s;
+  animation-delay: 1s;
+}
+
+.blob-3 {
+  width: 160px;
+  height: 160px;
+  background: rgba(254, 200, 154, 0.42);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation-duration: 9s;
+  animation-delay: 2s;
+}
+
+/* Floating emojis */
+.float-emoji {
+  position: absolute;
+  animation: floatY var(--dur, 5s) ease-in-out infinite;
+  animation-delay: var(--delay, 0s);
+  pointer-events: none;
+  user-select: none;
+  z-index: 1;
+  filter: drop-shadow(0 2px 6px rgba(200, 80, 50, 0.15));
+}
+
+/* Content */
+.intro-content {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 48px 28px 40px;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.intro-content--in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Badge */
+.intro-badge {
+  display: inline-block;
+  background: rgba(255, 181, 167, 0.35);
+  border: 1.5px solid rgba(255, 181, 167, 0.7);
+  color: var(--medium);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 6px 16px;
+  border-radius: 99px;
+  margin-bottom: 28px;
+  backdrop-filter: blur(8px);
+}
+
+/* Hero */
+.intro-hero {
+  margin-bottom: 28px;
+}
+
+.intro-coin {
+  font-size: 72px;
+  margin-bottom: 12px;
+  display: block;
+  animation: coinBounce 3.2s ease-in-out infinite;
+  filter: drop-shadow(0 8px 20px rgba(200, 80, 50, 0.22));
+}
+
+.intro-title {
+  font-family: var(--font-display);
+  font-size: 42px;
+  font-weight: 700;
+  color: var(--dark);
+  line-height: 1.15;
+  margin-bottom: 10px;
+  letter-spacing: -0.02em;
+}
+
+.intro-title-sub {
+  font-size: 46px;
+  background: linear-gradient(135deg, #e85a3a 0%, #ff9b7a 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.intro-desc {
+  font-size: 15px;
+  color: var(--medium);
+  line-height: 1.65;
+  font-weight: 500;
+}
+
+/* Pills */
+.intro-pills {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 32px;
+}
+
+.pill {
+  background: var(--white);
+  border: 1.5px solid rgba(255, 181, 167, 0.5);
+  color: var(--medium);
+  font-size: 12.5px;
+  font-weight: 700;
+  padding: 8px 14px;
+  border-radius: 99px;
+  box-shadow: var(--shadow-soft);
+}
+
+/* CTA button */
+.intro-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  max-width: 320px;
+  padding: 20px 28px;
+  border-radius: 99px;
+  background: linear-gradient(135deg, #FFB5A7 0%, #ff8a74 100%);
+  color: #fff;
+  font-family: var(--font-body);
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  box-shadow: var(--shadow-btn);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  margin-bottom: 18px;
+  position: relative;
+  overflow: hidden;
+}
+
+.intro-cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.18) 50%, transparent 100%);
+  background-size: 200% auto;
+  animation: shimmer 2.5s linear infinite;
+}
+
+.intro-cta:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(255, 100, 70, 0.42);
+}
+
+.intro-cta:active {
+  transform: scale(0.97) translateY(0);
+}
+
+.cta-arrow {
+  font-size: 20px;
+  transition: transform 0.2s ease;
+}
+
+.intro-cta:hover .cta-arrow {
+  transform: translateX(4px);
+}
+
+.intro-note {
+  font-size: 12px;
+  color: var(--muted);
+  font-weight: 500;
+}
