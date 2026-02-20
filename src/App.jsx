@@ -45,7 +45,7 @@ export default function App() {
   }
 
   return (
-    <div className="app">
+    <main className="app">
       {phase === 'intro' && <IntroPage onStart={handleStart} />}
 
       {phase === 'quiz' && (
@@ -61,6 +61,6 @@ export default function App() {
       {phase === 'result' && result && (
         <ResultPage result={result} onRestart={handleRestart} />
       )}
-    </div>
+    </main>
   )
 }

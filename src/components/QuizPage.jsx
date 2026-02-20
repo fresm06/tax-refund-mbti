@@ -18,59 +18,64 @@ export default function QuizPage({ question, questionIndex, totalQuestions, onAn
   }
 
   return (
-    <div className="quiz-page">
+    <section className="quiz-page" aria-label="퀴즈 진행 화면">
       {/* Progress header */}
-      <div className="quiz-header">
-        <div className="quiz-meta">
+      <header className="quiz-header">
+        <div className="quiz-meta" aria-live="polite">
           <span className="quiz-count">
             <span className="quiz-count-current">{questionIndex + 1}</span>
             <span className="quiz-count-sep"> / </span>
             <span className="quiz-count-total">{totalQuestions}</span>
           </span>
         </div>
-        <div className="quiz-bar-track">
+        <div
+          className="quiz-bar-track"
+          role="progressbar"
+          aria-valuenow={progress}
+          aria-valuemin="0"
+          aria-valuemax="100"
+        >
           <div
             className="quiz-bar-fill"
             style={{ width: `${progress}%` }}
           />
         </div>
-        <div className="quiz-dots">
+        <div className="quiz-dots" aria-hidden="true">
           {Array.from({ length: totalQuestions }).map((_, i) => (
             <div
               key={i}
-              className={`quiz-dot ${
-                i < questionIndex ? 'done' : i === questionIndex ? 'active' : ''
-              }`}
+              className={`quiz-dot ${i < questionIndex ? 'done' : i === questionIndex ? 'active' : ''
+                }`}
             />
           ))}
         </div>
-      </div>
+      </header>
 
       {/* Question card */}
-      <div key={animKey} className="question-card">
-        <div className="question-emoji">{question.emoji}</div>
-        <p className="question-text">
+      <article key={animKey} className="question-card">
+        <div className="question-emoji" aria-hidden="true">{question.emoji}</div>
+        <h2 className="question-text">
           {question.question.split('\n').map((line, i) => (
             <span key={i}>
               {line}
               {i === 0 && <br />}
             </span>
           ))}
-        </p>
-      </div>
+        </h2>
+      </article>
 
       {/* Answer buttons */}
-      <div className="answers-wrap">
+      <div className="answers-wrap" role="group" aria-label="답변 선택">
         {question.answers.map((answer, i) => (
           <button
             key={i}
-            className={`answer-btn ${selected === i ? 'answer-btn--selected' : ''} ${
-              selected !== null && selected !== i ? 'answer-btn--faded' : ''
-            }`}
+            className={`answer-btn ${selected === i ? 'answer-btn--selected' : ''} ${selected !== null && selected !== i ? 'answer-btn--faded' : ''
+              }`}
             onClick={() => handleAnswer(answer.score, i)}
             disabled={transitioning || selected !== null}
+            aria-pressed={selected === i}
           >
-            <span className="answer-label">{i === 0 ? 'A' : 'B'}</span>
+            <span className="answer-label" aria-hidden="true">{i === 0 ? 'A' : 'B'}</span>
             <span className="answer-text">
               {answer.text.split('\n').map((line, j) => (
                 <span key={j} className={j === 1 ? 'answer-sub' : ''}>
@@ -79,10 +84,10 @@ export default function QuizPage({ question, questionIndex, totalQuestions, onAn
                 </span>
               ))}
             </span>
-            {selected === i && <span className="answer-check">✓</span>}
+            {selected === i && <span className="answer-check" aria-hidden="true">✓</span>}
           </button>
         ))}
       </div>
-    </div>
+    </section>
   )
 }

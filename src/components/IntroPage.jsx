@@ -23,17 +23,18 @@ export default function IntroPage({ onStart }) {
   }, [])
 
   return (
-    <div className="intro-page">
+    <article className="intro-page">
       {/* Animated background blobs */}
-      <div className="intro-blob blob-1" />
-      <div className="intro-blob blob-2" />
-      <div className="intro-blob blob-3" />
+      <div className="intro-blob blob-1" aria-hidden="true" />
+      <div className="intro-blob blob-2" aria-hidden="true" />
+      <div className="intro-blob blob-3" aria-hidden="true" />
 
       {/* Floating emojis */}
       {FLOATING.map((item, i) => (
         <span
           key={i}
           className="float-emoji"
+          aria-hidden="true"
           style={{
             left: `${item.x}%`,
             top: `${item.y}%`,
@@ -47,11 +48,11 @@ export default function IntroPage({ onStart }) {
       ))}
 
       {/* Main content */}
-      <div className={`intro-content ${mounted ? 'intro-content--in' : ''}`}>
-        <div className="intro-badge">✨ 2025 연말정산 특집</div>
+      <section className={`intro-content ${mounted ? 'intro-content--in' : ''}`}>
+        <div className="intro-badge" aria-label="이벤트 태그">✨ 2025 연말정산 특집</div>
 
-        <div className="intro-hero">
-          <div className="intro-coin">💰</div>
+        <header className="intro-hero">
+          <div className="intro-coin" aria-hidden="true">💰</div>
           <h1 className="intro-title">
             13월의 월급
             <br />
@@ -62,21 +63,21 @@ export default function IntroPage({ onStart }) {
             <br />
             내년 연말정산을 미리 준비해봐요!
           </p>
-        </div>
+        </header>
 
-        <div className="intro-pills">
+        <div className="intro-pills" aria-label="테스트 특징">
           <span className="pill">⏱️ 약 2분 소요</span>
           <span className="pill">🔥 8가지 질문</span>
           <span className="pill">🎯 4가지 유형</span>
         </div>
 
-        <button className="intro-cta" onClick={onStart}>
+        <button className="intro-cta" onClick={onStart} aria-label="나의 소비유형 알아보기 시작 버튼">
           <span>나의 소비유형 알아보기</span>
-          <span className="cta-arrow">→</span>
+          <span className="cta-arrow" aria-hidden="true">→</span>
         </button>
 
         <p className="intro-note">* 결과는 재미로만 봐주세요 😊</p>
-      </div>
-    </div>
+      </section>
+    </article>
   )
 }

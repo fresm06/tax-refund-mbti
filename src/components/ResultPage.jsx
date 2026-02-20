@@ -32,23 +32,24 @@ export default function ResultPage({ result, onRestart }) {
     if (navigator.share) {
       try {
         await navigator.share({ title: '13월의 월급 소비 MBTI', text, url: window.location.href })
-      } catch {}
+      } catch { }
     } else {
       try {
         await navigator.clipboard.writeText(text)
         setCopied(true)
         setTimeout(() => setCopied(false), 2400)
-      } catch {}
+      } catch { }
     }
   }
 
   return (
-    <div className="result-page">
+    <section className="result-page" aria-label="테스트 결과 화면">
       {/* Confetti */}
       {confetti.map((p) => (
         <div
           key={p.id}
           className="confetti"
+          aria-hidden="true"
           style={{
             left: `${p.x}%`,
             width: p.shape === 'circle' ? p.size : p.size * 0.6,
@@ -64,18 +65,18 @@ export default function ResultPage({ result, onRestart }) {
 
       <div className={`result-scroll ${revealed ? 'result-scroll--in' : ''}`}>
         {/* Hero result card */}
-        <div className="result-hero" style={{ background: result.bgGradient }} ref={cardRef}>
-          <div className="result-tag">나의 소비 유형</div>
-          <div className="result-big-emoji">{result.emoji}</div>
+        <article className="result-hero" style={{ background: result.bgGradient }} ref={cardRef}>
+          <div className="result-tag" aria-label="결과 태그">나의 소비 유형</div>
+          <div className="result-big-emoji" aria-hidden="true">{result.emoji}</div>
           <h1 className="result-title">{result.title}</h1>
           <p className="result-subtitle">{result.subtitle}</p>
-          <div className="result-divider" />
+          <div className="result-divider" aria-hidden="true" />
           <p className="result-desc">{result.description}</p>
-        </div>
+        </article>
 
         {/* Traits */}
-        <div className="result-section">
-          <h2 className="section-title">📌 나의 특징</h2>
+        <section className="result-section" aria-labelledby="traits-title">
+          <h2 id="traits-title" className="section-title">📌 나의 특징</h2>
           <div className="traits-grid">
             {result.traits.map((t, i) => (
               <div key={i} className="trait-chip" style={{ animationDelay: `${i * 0.08 + 0.3}s` }}>
@@ -83,51 +84,53 @@ export default function ResultPage({ result, onRestart }) {
               </div>
             ))}
           </div>
-        </div>
+        </section>
 
         {/* Tips */}
-        <div className="result-section tips-section">
-          <h2 className="section-title">💡 {result.tipTitle}</h2>
+        <section className="result-section tips-section" aria-labelledby="tips-title">
+          <h2 id="tips-title" className="section-title">💡 {result.tipTitle}</h2>
           <div className="tips-list">
             {result.tips.map((tip, i) => (
-              <div key={i} className="tip-row" style={{ animationDelay: `${i * 0.1 + 0.5}s` }}>
-                <span className="tip-num" style={{ background: result.color }}>{i + 1}</span>
+              <article key={i} className="tip-row" style={{ animationDelay: `${i * 0.1 + 0.5}s` }}>
+                <span className="tip-num" aria-hidden="true" style={{ background: result.color }}>{i + 1}</span>
                 <p className="tip-text">{tip}</p>
-              </div>
+              </article>
             ))}
           </div>
-        </div>
+        </section>
 
         {/* Compatibility */}
-        <div className="result-section">
-          <h2 className="section-title">💞 궁합 유형</h2>
+        <section className="result-section" aria-labelledby="compat-title">
+          <h2 id="compat-title" className="section-title">💞 궁합 유형</h2>
           <div className="compat-row">
-            <div className="compat-card compat-good">
-              <div className="compat-icon">💕</div>
+            <article className="compat-card compat-good">
+              <div className="compat-icon" aria-hidden="true">💕</div>
               <div className="compat-label">찰떡 궁합</div>
-              <div className="compat-name">{result.compatibleWith}</div>
-            </div>
-            <div className="compat-divider">vs</div>
-            <div className="compat-card compat-bad">
-              <div className="compat-icon">⚡</div>
+              <h3 className="compat-name">{result.compatibleWith}</h3>
+            </article>
+            <div className="compat-divider" aria-hidden="true">vs</div>
+            <article className="compat-card compat-bad">
+              <div className="compat-icon" aria-hidden="true">⚡</div>
               <div className="compat-label">파국 케미</div>
-              <div className="compat-name">{result.incompatibleWith}</div>
-            </div>
+              <h3 className="compat-name">{result.incompatibleWith}</h3>
+            </article>
           </div>
-        </div>
+        </section>
 
         {/* Actions */}
-        <div className="result-actions">
-          <button className="btn-share" onClick={handleShare}>
+        <nav className="result-actions" aria-label="결과 페이지 액션">
+          <button className="btn-share" onClick={handleShare} aria-label="친구에게 결과 공유하기">
             {copied ? '📋 클립보드에 복사됐어요!' : '🔗 친구에게 공유하기'}
           </button>
-          <button className="btn-restart" onClick={onRestart}>
+          <button className="btn-restart" onClick={onRestart} aria-label="테스트 처음부터 다시하기">
             🔄 다시 테스트하기
           </button>
-        </div>
+        </nav>
 
-        <p className="result-footer">* 본 테스트는 재미 목적으로만 활용해주세요 😊</p>
+        <footer className="result-footer">
+          <p>* 본 테스트는 재미 목적으로만 활용해주세요 😊</p>
+        </footer>
       </div>
-    </div>
+    </section>
   )
 }

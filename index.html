@@ -41,6 +41,20 @@
 
   <meta name="theme-color" content="#FFB5A7" />
 
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "13월의 월급 — 소비 MBTI 테스트",
+      "url": "https://tax-refund-mbti.pages.dev/",
+      "description": "나의 연말정산 소비 MBTI는? 8가지 질문으로 알아보는 나의 소비 유형과 환급액 전략. 친구와 궁합도 맞춰보고 13월의 월급을 스마트하게 준비하세요!",
+      "applicationCategory": "LifestyleApplication",
+      "operatingSystem": "All",
+      "inLanguage": "ko"
+    }
+  </script>
+
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -50,7 +64,24 @@
 </head>
 
 <body>
-  <div id="root"></div>
+  <noscript>
+    이 13월의 월급 소비 MBTI 테스트를 이용하시려면 자바스크립트를 활성화해주세요.
+  </noscript>
+  <div id="root">
+    <!-- 크롤러 수집용 정적 텍스트 (SSR Fallback) -->
+    <div style="display: none;" aria-hidden="true">
+      <h1>13월의 월급 소비 MBTI 테스트</h1>
+      <p>연말정산을 앞두고 나의 소비 성향을 체크해봐요! 8가지 질문으로 나의 소비 유형을 분석합니다.</p>
+      <h2>알아볼 수 있는 소비 유형</h2>
+      <ul>
+        <li>욜로 탕진형: 환급액은 스쳐갈 뿐</li>
+        <li>흘러가는 물처럼형: 그냥 사는 대로 사는</li>
+        <li>영수증 줍줍형: 먼지 모아 태산</li>
+        <li>절세 마스터형: 13월의 월급이 가장 큰 나</li>
+      </ul>
+      <p>결과를 친구에게 공유하고 나와 찰떡인 궁합 유형도 확인해보세요.</p>
+    </div>
+  </div>
   <script type="module" src="/src/main.jsx"></script>
 </body>
 
