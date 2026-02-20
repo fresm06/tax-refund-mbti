@@ -2,86 +2,155 @@
 <html lang="ko">
 
 <head>
-  <!-- Google tag (gtag.js) -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+  <!-- ══ 기본 SEO ══ -->
+  <title>13월의 월급 소비 MBTI 테스트 | 연말정산 유형 분석</title>
+  <meta name="description" content="나의 연말정산 소비 MBTI는? 8문제로 알아보는 나의 소비 유형과 절세 꿀팁!" />
+  <meta name="keywords" content="연말정산,MBTI,소비 성향,13월의 월급,환급액,심리테스트,절세,직장인" />
+  <meta name="author" content="taxmbti.cc" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://taxmbti.cc/" />
+
+  <!-- ══ Open Graph (카카오·페이스북·네이버 공유) ══ -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://taxmbti.cc/" />
+  <meta property="og:site_name" content="13월의 월급 소비 MBTI" />
+  <meta property="og:title" content="나의 연말정산 소비 MBTI는? 💰" />
+  <meta property="og:description" content="8문제로 알아보는 나의 소비 유형과 절세 꿀팁! 친구와 궁합도 확인해보세요." />
+  <meta property="og:image" content="https://taxmbti.cc/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="13월의 월급 소비 MBTI 테스트" />
+  <meta property="og:locale" content="ko_KR" />
+
+  <!-- ══ Twitter Card ══ -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://taxmbti.cc/" />
+  <meta name="twitter:title" content="나의 연말정산 소비 MBTI는? 💰" />
+  <meta name="twitter:description" content="8문제로 알아보는 나의 소비 유형과 절세 꿀팁!" />
+  <meta name="twitter:image" content="https://taxmbti.cc/og-image.png" />
+
+  <!-- ══ 모바일 / PWA ══ -->
+  <meta name="theme-color" content="#FFB5A7" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="소비 MBTI" />
+
+  <!-- ══ 파비콘 ══ -->
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💰</text></svg>" />
+
+  <!-- ══ Naver Search Advisor 소유 확인 ══ -->
+  <!-- <meta name="naver-site-verification" content="YOUR_NAVER_VERIFICATION_CODE" /> -->
+
+  <!-- ══ Google Search Console 소유 확인 ══ -->
+  <!-- <meta name="google-site-verification" content="YOUR_GOOGLE_VERIFICATION_CODE" /> -->
+
+  <!-- ══ 구조화 데이터 (JSON-LD) ══ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "13월의 월급 소비 MBTI 테스트",
+    "url": "https://taxmbti.cc/",
+    "description": "나의 연말정산 소비 MBTI는? 8가지 질문으로 알아보는 소비 유형과 절세 꿀팁.",
+    "applicationCategory": "LifestyleApplication",
+    "operatingSystem": "All",
+    "inLanguage": "ko-KR",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "KRW" },
+    "publisher": {
+      "@type": "Organization",
+      "name": "taxmbti.cc",
+      "url": "https://taxmbti.cc/"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "연말정산 소비 MBTI 테스트가 무엇인가요?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "8가지 질문을 통해 나의 소비 성향을 분석하고, 욜로 탕진형·영수증 줍줍형·절세 마스터형 등 4가지 소비 유형 중 하나를 알려주는 심리테스트입니다."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "연말정산 환급액을 늘리려면 어떻게 해야 하나요?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "체크카드 사용 비중을 늘리고, IRP·연금저축 계좌에 납입하며, 의료비·교육비 영수증을 꼼꼼히 챙기면 세액공제를 최대화할 수 있습니다."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "소비 MBTI 유형에는 어떤 것들이 있나요?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "욜로 탕진형, 흘러가는 물처럼형, 영수증 줍줍형, 절세 마스터형 등 4가지 유형으로 나뉩니다."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- ══ 폰트 — 렌더링 비차단 로드 ══ -->
+  <!-- 1단계: DNS 선조회 + 연결 사전 수립 -->
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <!-- 2단계: 폰트 CSS를 print로 먼저 불러와 렌더링 비차단 처리 -->
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Gaegu:wght@700&family=Noto+Sans+KR:wght@400;500;700&display=swap"
+    media="print"
+    onload="this.media='all'" />
+  <!-- 3단계: JS 비활성화 환경 폴백 -->
+  <noscript>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Gaegu:wght@700&family=Noto+Sans+KR:wght@400;500;700&display=swap" />
+  </noscript>
+
+  <!-- ══ Google Analytics ══ -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-CK0MMLNC7K"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
-
-    gtag('config', 'G-CK0MMLNC7K');
+    gtag('config', 'G-CK0MMLNC7K', { 'send_page_view': true });
   </script>
-
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml"
-    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💰</text></svg>" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>13월의 월급 — 소비 MBTI 테스트</title>
-
-  <!-- SEO & OG -->
-  <meta name="description"
-    content="나의 연말정산 소비 MBTI는? 8가지 질문으로 알아보는 나의 소비 유형과 환급액 전략. 친구와 궁합도 맞춰보고 13월의 월급을 스마트하게 준비하세요!" />
-  <meta name="keywords" content="연말정산, MBTI, 소비 성향, 13월의 월급, 환급액, 심리테스트, 재테크, 가성비, 직장인 공감, 절세" />
-  <meta name="author" content="AutoAOWeb" />
-  <link rel="canonical" href="https://tax-refund-mbti.pages.dev/" />
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="13월의 월급 — 소비 MBTI 테스트" />
-  <meta property="og:description" content="연말정산을 앞두고 나의 소비 성향을 체크해봐요! 결과를 친구에게 뽐내고 궁합도 확인하세요." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://tax-refund-mbti.pages.dev/" />
-  <meta property="og:image" content="https://tax-refund-mbti.pages.dev/og-image.png" />
-  <meta property="og:site_name" content="소비 MBTI 테스트" />
-  <meta property="og:locale" content="ko_KR" />
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="13월의 월급 — 소비 MBTI 테스트" />
-  <meta name="twitter:description" content="연말정산을 앞두고 나의 소비 성향을 체크해봐요!" />
-
-  <meta name="theme-color" content="#FFB5A7" />
-
-  <!-- JSON-LD Structured Data -->
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "13월의 월급 — 소비 MBTI 테스트",
-      "url": "https://tax-refund-mbti.pages.dev/",
-      "description": "나의 연말정산 소비 MBTI는? 8가지 질문으로 알아보는 나의 소비 유형과 환급액 전략. 친구와 궁합도 맞춰보고 13월의 월급을 스마트하게 준비하세요!",
-      "applicationCategory": "LifestyleApplication",
-      "operatingSystem": "All",
-      "inLanguage": "ko"
-    }
-  </script>
-
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Gaegu:wght@400;700&family=Noto+Sans+KR:wght@400;500;700;900&display=swap"
-    rel="stylesheet" />
 </head>
 
 <body>
   <noscript>
-    이 13월의 월급 소비 MBTI 테스트를 이용하시려면 자바스크립트를 활성화해주세요.
+    <p>이 테스트를 이용하시려면 자바스크립트를 활성화해주세요.</p>
   </noscript>
+
   <div id="root">
-    <!-- 크롤러 수집용 정적 텍스트 (SSR Fallback) -->
-    <div style="display: none;" aria-hidden="true">
+    <!-- 크롤러용 정적 텍스트 (CSR Fallback) -->
+    <div style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);" aria-hidden="true">
       <h1>13월의 월급 소비 MBTI 테스트</h1>
-      <p>연말정산을 앞두고 나의 소비 성향을 체크해봐요! 8가지 질문으로 나의 소비 유형을 분석합니다.</p>
-      <h2>알아볼 수 있는 소비 유형</h2>
+      <p>연말정산을 앞두고 나의 소비 성향을 8가지 질문으로 분석합니다.</p>
+      <h2>소비 유형 4가지</h2>
       <ul>
-        <li>욜로 탕진형: 환급액은 스쳐갈 뿐</li>
-        <li>흘러가는 물처럼형: 그냥 사는 대로 사는</li>
-        <li>영수증 줍줍형: 먼지 모아 태산</li>
-        <li>절세 마스터형: 13월의 월급이 가장 큰 나</li>
+        <li>욜로 탕진형 — 환급액은 스쳐갈 뿐</li>
+        <li>흘러가는 물처럼형 — 그냥 사는 대로 사는</li>
+        <li>영수증 줍줍형 — 먼지 모아 태산</li>
+        <li>절세 마스터형 — 13월의 월급이 가장 큰 나</li>
       </ul>
-      <p>결과를 친구에게 공유하고 나와 찰떡인 궁합 유형도 확인해보세요.</p>
+      <p>결과를 친구에게 공유하고 찰떡 궁합 유형도 확인해보세요.</p>
     </div>
   </div>
+
   <script type="module" src="/src/main.jsx"></script>
 </body>
 
