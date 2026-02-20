@@ -1,4 +1,5 @@
 import { useEffect, useState, useRef } from 'react'
+import Footer from './Footer'
 import './ResultPage.css'
 
 const CONFETTI_COLORS = ['#FFB5A7', '#FCD5CE', '#F9DCC4', '#FEC89A', '#fff', '#ffde7d', '#ffa8a8']
@@ -16,7 +17,7 @@ function generateConfetti() {
   }))
 }
 
-export default function ResultPage({ result, onRestart }) {
+export default function ResultPage({ result, onRestart, onNavigate }) {
   const [revealed, setRevealed] = useState(false)
   const [confetti] = useState(generateConfetti)
   const [copied, setCopied] = useState(false)
@@ -127,9 +128,9 @@ export default function ResultPage({ result, onRestart }) {
           </button>
         </nav>
 
-        <footer className="result-footer">
-          <p>* 본 테스트는 재미 목적으로만 활용해주세요 😊</p>
-        </footer>
+        <p className="result-footer">* 본 테스트는 재미 목적으로만 활용해주세요 😊</p>
+
+        <Footer onNavigate={onNavigate} />
       </div>
     </section>
   )

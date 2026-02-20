@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import Footer from './Footer'
 import './IntroPage.css'
 
 const FLOATING = [
@@ -14,7 +15,7 @@ const FLOATING = [
   { emoji: '💵', x: 55, y: 85, delay: 0.4, dur: 5.3, size: 20 },
 ]
 
-export default function IntroPage({ onStart }) {
+export default function IntroPage({ onStart, onNavigate }) {
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
@@ -78,6 +79,8 @@ export default function IntroPage({ onStart }) {
 
         <p className="intro-note">* 결과는 재미로만 봐주세요 😊</p>
       </section>
+
+      <Footer onNavigate={onNavigate} />
     </article>
   )
 }
