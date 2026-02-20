@@ -48,7 +48,7 @@ export default function IntroPage({ onStart }) {
 
       {/* Main content */}
       <div className={`intro-content ${mounted ? 'intro-content--in' : ''}`}>
-        <div className="intro-badge">✨ 2024 연말정산 특집</div>
+        <div className="intro-badge">✨ 2026 연말정산 특집</div>
 
         <div className="intro-hero">
           <div className="intro-coin">💰</div>
