@@ -6,6 +6,10 @@ export default function Footer({ onNavigate }) {
       <div className="footer-inner">
         <p className="footer-copy">© 2025 소비 MBTI 테스트. All rights reserved.</p>
         <nav className="footer-links" aria-label="법적 정보">
+          <a className="footer-link" href="#/blog">
+            연말정산 블로그
+          </a>
+          <span className="footer-sep">·</span>
           <button className="footer-link" onClick={() => onNavigate('privacy')}>
             개인정보처리방침
           </button>

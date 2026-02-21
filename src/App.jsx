@@ -1,9 +1,11 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import IntroPage from './components/IntroPage'
 import QuizPage from './components/QuizPage'
 import ResultPage from './components/ResultPage'
 import PrivacyPage from './components/PrivacyPage'
 import TermsPage from './components/TermsPage'
+import BlogListPage from './components/BlogListPage'
+import BlogPostPage from './components/BlogPostPage'
 import { questions } from './data/questions'
 import { getResult } from './data/results'
 import './App.css'
@@ -16,6 +18,17 @@ export default function App() {
   const [score, setScore] = useState(0)
   const [transitioning, setTransitioning] = useState(false)
   const [result, setResult] = useState(null)
+  const [hash, setHash] = useState(window.location.hash)
+
+  // 해시 변경 감지 (블로그 라우팅)
+  useEffect(() => {
+    const onHashChange = () => {
+      setHash(window.location.hash)
+      window.scrollTo(0, 0)
+    }
+    window.addEventListener('hashchange', onHashChange)
+    return () => window.removeEventListener('hashchange', onHashChange)
+  }, [])
 
   const navigateTo = (target) => {
     setPrevPhase(phase)
@@ -24,6 +37,7 @@ export default function App() {
   }
 
   const handleStart = () => {
+    window.location.hash = ''
     setPhase('quiz')
     setCurrentIndex(0)
     setScore(0)
@@ -60,6 +74,25 @@ export default function App() {
     window.scrollTo(0, 0)
   }
 
+  // ── 블로그 라우팅 (해시 기반) ──
+  if (hash.startsWith('#/blog/')) {
+    const slug = hash.replace('#/blog/', '')
+    return (
+      <main className="app">
+        <BlogPostPage slug={slug} onNavigate={navigateTo} />
+      </main>
+    )
+  }
+
+  if (hash === '#/blog') {
+    return (
+      <main className="app">
+        <BlogListPage onNavigate={navigateTo} />
+      </main>
+    )
+  }
+
+  // ── 기존 퀴즈 앱 ──
   return (
     <main className="app">
       {phase === 'intro' && (

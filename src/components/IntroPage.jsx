@@ -276,6 +276,17 @@ export default function IntroPage({ onStart, onNavigate }) {
           </div>
         </section>
 
+        {/* 블로그 배너 */}
+        <section className="is-section is-blog-banner" aria-label="블로그 바로가기">
+          <div className="is-blog-inner">
+            <div className="is-blog-text">
+              <p className="is-blog-label">📝 더 많은 절세 정보가 궁금하다면?</p>
+              <p className="is-blog-title">연말정산 블로그 — 체크카드 전략, IRP 활용법, 월세 공제 등 심층 가이드</p>
+            </div>
+            <a href="#/blog" className="is-blog-btn">블로그 보기 →</a>
+          </div>
+        </section>
+
       </div>
 
       <Footer onNavigate={onNavigate} />
