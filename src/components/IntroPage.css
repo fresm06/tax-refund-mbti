@@ -266,7 +266,7 @@
 .is-type-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
+  gap: 14px;
   margin-bottom: 32px;
 }
 
@@ -277,45 +277,59 @@
 }
 
 .is-type-card {
-  background: #fff;
   border-radius: 20px;
-  padding: 24px 20px;
-  box-shadow: 0 2px 12px rgba(200, 80, 50, 0.08);
-  border: 1.5px solid rgba(255, 181, 167, 0.3);
+  padding: 22px 20px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  border: 1.5px solid rgba(255, 255, 255, 0.8);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .is-type-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 24px rgba(200, 80, 50, 0.14);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.1);
+}
+
+/* 번호 + 이모지 상단 행 */
+.is-type-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.is-type-num {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1;
+  opacity: 0.9;
 }
 
 .is-type-emoji {
-  font-size: 36px;
-  display: block;
-  margin-bottom: 10px;
+  font-size: 32px;
+  line-height: 1;
 }
 
 .is-type-name {
   font-family: var(--font-display);
   font-size: 17px;
   font-weight: 700;
-  color: var(--dark);
-  margin-bottom: 4px;
+  margin-bottom: 3px;
+  line-height: 1.2;
 }
 
 .is-type-sub {
-  font-size: 12px;
+  font-size: 11.5px;
   font-weight: 700;
-  color: #e85a3a;
-  margin-bottom: 8px;
+  color: var(--muted);
+  margin-bottom: 10px;
   letter-spacing: 0.02em;
 }
 
 .is-type-desc {
-  font-size: 13px;
+  font-size: 12.5px;
   color: var(--medium);
-  line-height: 1.6;
+  line-height: 1.65;
 }
 
 /* CTA 버튼 */
@@ -425,34 +439,110 @@
   margin: 0;
 }
 
-/* FAQ */
+/* FAQ — 아코디언 */
 .is-faq-list {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 10px;
   margin-bottom: 32px;
 }
 
 .is-faq-item {
   background: #fff;
-  border-radius: 16px;
-  padding: 22px 24px;
-  box-shadow: 0 2px 10px rgba(200, 80, 50, 0.07);
-  border-left: 4px solid #FFB5A7;
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(200, 80, 50, 0.06);
+  border: 1.5px solid rgba(255, 181, 167, 0.2);
+  overflow: hidden;
+  transition: box-shadow 0.2s ease;
+}
+
+.is-faq-item:has(.is-faq-btn--open) {
+  border-color: rgba(255, 181, 167, 0.5);
+  box-shadow: 0 4px 16px rgba(200, 80, 50, 0.1);
+}
+
+/* 질문 토글 버튼 */
+.is-faq-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 18px 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.15s ease;
+}
+
+.is-faq-btn:hover {
+  background: rgba(255, 245, 242, 0.8);
+}
+
+.is-faq-btn--open {
+  background: rgba(255, 245, 242, 0.9);
+}
+
+.is-faq-num {
+  flex-shrink: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #FFB5A7 0%, #ff8a74 100%);
+  color: #fff;
+  font-size: 11.5px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 0.02em;
 }
 
 .is-faq-q {
+  flex: 1;
   font-size: 14px;
   font-weight: 700;
   color: var(--dark);
-  margin-bottom: 8px;
   line-height: 1.4;
+  margin: 0;
 }
 
+.is-faq-arrow {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: rgba(255, 181, 167, 0.2);
+  color: #e85a3a;
+  font-size: 18px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  transition: background 0.15s ease, transform 0.2s ease;
+}
+
+.is-faq-btn--open .is-faq-arrow {
+  background: rgba(255, 181, 167, 0.4);
+}
+
+/* 답변 영역 */
 .is-faq-a {
+  padding: 0 20px 18px 62px;
+  animation: faqOpen 0.2s ease;
+}
+
+.is-faq-a p {
   font-size: 13.5px;
   color: var(--medium);
-  line-height: 1.7;
+  line-height: 1.75;
+  margin: 0;
+}
+
+@keyframes faqOpen {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 /* Animations (reuse from App) */

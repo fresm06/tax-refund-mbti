@@ -17,28 +17,40 @@ const FLOATING = [
 
 const TYPES = [
   {
+    num: '01',
     emoji: '🎉',
     title: '욜로 탕진형',
     subtitle: '환급액은 스쳐갈 뿐',
     desc: '돈이 생기면 바로 써버리는 소비의 달인. 연말정산 환급액은 통장에 잠깐 들렀다 떠나는 손님 같은 존재예요. 지금 이 순간을 즐기는 YOLO 정신!',
+    bg: 'linear-gradient(135deg, #fff0ee 0%, #ffe0db 100%)',
+    accent: '#e85a3a',
   },
   {
+    num: '02',
     emoji: '🌊',
     title: '흘러가는 물처럼형',
     subtitle: '그냥 사는 대로 사는',
     desc: '소비도 절약도 딱히 계획 없지만 어찌저찌 잘 살아가는 유형. 연말정산? 회사가 알아서 해주겠지. 스트레스 없는 여유로운 마인드의 소유자.',
+    bg: 'linear-gradient(135deg, #eef6ff 0%, #d6eaff 100%)',
+    accent: '#4a90d9',
   },
   {
+    num: '03',
     emoji: '🧾',
     title: '영수증 줍줍형',
     subtitle: '먼지 모아 태산',
     desc: '영수증 하나도 허투루 버리지 않는 절약의 아이콘! 체크카드를 애용하고 공제 항목도 꼼꼼히 챙기는 당신. 작은 습관이 큰 환급액으로 돌아온다는 걸 이미 알고 있죠!',
+    bg: 'linear-gradient(135deg, #fffbee 0%, #fff0c0 100%)',
+    accent: '#c49a00',
   },
   {
+    num: '04',
     emoji: '💰',
     title: '절세 마스터형',
     subtitle: '13월의 월급이 가장 큰 나',
     desc: '연말정산을 진짜 13번째 월급으로 만드는 고수! 체크카드, IRP, 연금저축 등 절세 수단을 총동원하는 재테크의 달인. 매년 환급액이 기대되는 삶!',
+    bg: 'linear-gradient(135deg, #eefaf6 0%, #c8f0e2 100%)',
+    accent: '#1a9e6e',
   },
 ]
 
@@ -118,11 +130,14 @@ const FAQ = [
 
 export default function IntroPage({ onStart, onNavigate }) {
   const [mounted, setMounted] = useState(false)
+  const [openFaq, setOpenFaq] = useState(null)
 
   useEffect(() => {
     const t = setTimeout(() => setMounted(true), 50)
     return () => clearTimeout(t)
   }, [])
+
+  const toggleFaq = (i) => setOpenFaq(openFaq === i ? null : i)
 
   return (
     <article className="intro-page">
@@ -194,9 +209,12 @@ export default function IntroPage({ onStart, onNavigate }) {
           <p className="is-sub">8개의 질문을 통해 아래 4가지 유형 중 나의 소비 성향이 어디에 해당하는지 알아보세요</p>
           <div className="is-type-grid">
             {TYPES.map((t, i) => (
-              <div key={i} className="is-type-card">
-                <div className="is-type-emoji" aria-hidden="true">{t.emoji}</div>
-                <h3 className="is-type-name">{t.title}</h3>
+              <div key={i} className="is-type-card" style={{ background: t.bg }}>
+                <div className="is-type-card-top">
+                  <span className="is-type-num" style={{ color: t.accent }}>{t.num}</span>
+                  <span className="is-type-emoji" aria-hidden="true">{t.emoji}</span>
+                </div>
+                <h3 className="is-type-name" style={{ color: t.accent }}>{t.title}</h3>
                 <p className="is-type-sub">{t.subtitle}</p>
                 <p className="is-type-desc">{t.desc}</p>
               </div>
@@ -234,8 +252,22 @@ export default function IntroPage({ onStart, onNavigate }) {
           <div className="is-faq-list">
             {FAQ.map((item, i) => (
               <div key={i} className="is-faq-item">
-                <h3 className="is-faq-q">Q. {item.q}</h3>
-                <p className="is-faq-a">{item.a}</p>
+                <button
+                  className={`is-faq-btn ${openFaq === i ? 'is-faq-btn--open' : ''}`}
+                  onClick={() => toggleFaq(i)}
+                  aria-expanded={openFaq === i}
+                >
+                  <span className="is-faq-num">Q{i + 1}</span>
+                  <span className="is-faq-q">{item.q}</span>
+                  <span className="is-faq-arrow" aria-hidden="true">
+                    {openFaq === i ? '−' : '+'}
+                  </span>
+                </button>
+                {openFaq === i && (
+                  <div className="is-faq-a">
+                    <p>{item.a}</p>
+                  </div>
+                )}
               </div>
             ))}
           </div>
