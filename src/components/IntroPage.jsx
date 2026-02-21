@@ -45,33 +45,51 @@ const TYPES = [
 const DEDUCTIONS = [
   {
     icon: '💳',
+    tag: '소득공제',
+    tagColor: '#4a90d9',
     title: '신용카드·체크카드 소득공제',
-    desc: '총급여의 25% 초과 사용분에 대해 공제. 체크카드·현금영수증은 30%, 신용카드는 15% 공제율이 적용됩니다. 급여 25%를 넘기면 체크카드로 결제하는 것이 유리해요.',
+    highlight: '체크카드 30% · 신용카드 15%',
+    desc: '총급여의 25% 초과 사용분부터 공제 적용. 급여 25%를 넘긴 시점부터는 체크카드·현금영수증(공제율 30%)으로 결제하는 것이 신용카드(15%)보다 두 배 유리해요.',
   },
   {
     icon: '📈',
-    title: '연금저축·IRP 세액공제',
-    desc: '연금저축 연 400만원, IRP 포함 연 900만원 한도로 납입액의 13.2~16.5%를 세액공제. 연봉 5,500만원 이하라면 최대 148만 5천원을 돌려받을 수 있어요.',
+    tag: '세액공제',
+    tagColor: '#e85a3a',
+    title: '연금저축 · IRP 세액공제',
+    highlight: '최대 연 148만 5천원 환급',
+    desc: '연금저축 연 400만원, IRP 포함 연 900만원 한도로 납입액의 13.2~16.5% 세액공제. 연봉 5,500만원 이하라면 최대 148만 5천원을 추가로 돌려받을 수 있어요.',
   },
   {
     icon: '🏥',
+    tag: '세액공제',
+    tagColor: '#e85a3a',
     title: '의료비 세액공제',
-    desc: '본인과 부양가족의 의료비 중 총급여의 3% 초과분에 대해 15% 세액공제. 안경·콘택트렌즈 구매비(50만원 한도), 산후조리원비(200만원 한도)도 포함됩니다.',
+    highlight: '총급여 3% 초과분의 15%',
+    desc: '본인·부양가족 의료비 중 총급여의 3% 초과분에 대해 15% 공제. 안경·콘택트렌즈(50만원 한도), 산후조리원비(200만원 한도)도 포함되니 영수증을 꼭 챙기세요.',
   },
   {
     icon: '🏠',
+    tag: '세액공제',
+    tagColor: '#e85a3a',
     title: '월세 세액공제',
-    desc: '총급여 7,000만원 이하 무주택 세입자라면 월세의 15~17%를 세액공제(최대 750만원 한도). 임대차계약서·주민등록등본·계좌이체 증빙 등을 꼭 챙겨두세요.',
+    highlight: '월세의 15~17% · 최대 750만원',
+    desc: '총급여 7,000만원 이하 무주택 세입자 대상. 임대차계약서·주민등록등본·계좌이체 내역 등 증빙 서류를 미리 모아두면 간소화 서비스에서 자동 반영됩니다.',
   },
   {
     icon: '📚',
+    tag: '세액공제',
+    tagColor: '#e85a3a',
     title: '교육비 세액공제',
-    desc: '본인 교육비는 전액 15% 세액공제. 자녀 유치원·초중고 교육비 300만원, 대학 등록금 900만원 한도로 15% 공제. 직장인 직무 관련 학원비는 본인만 적용됩니다.',
+    highlight: '납입액의 15% 공제',
+    desc: '본인 교육비는 전액 15% 공제. 자녀는 유치원·초중고 300만원, 대학 900만원 한도. 직장인 본인의 직무 관련 학원비도 공제 가능하니 수강료 영수증을 보관하세요.',
   },
   {
     icon: '❤️',
+    tag: '세액공제',
+    tagColor: '#e85a3a',
     title: '기부금 세액공제',
-    desc: '법정·정치자금·지정 기부금에 따라 15~30% 세액공제. 1,000만원 이하는 15%, 초과분은 30% 적용. 기부금 영수증은 발급 기관에 직접 요청해야 하는 경우도 있어요.',
+    highlight: '1,000만원 이하 15% · 초과분 30%',
+    desc: '법정·정치자금·지정 기부금 등 종류에 따라 15~30% 세액공제. 기부금 영수증은 발급 기관에 직접 요청해야 하는 경우도 있으니 연말 전에 미리 챙기세요.',
   },
 ]
 
@@ -196,11 +214,15 @@ export default function IntroPage({ onStart, onNavigate }) {
           <div className="is-ded-grid">
             {DEDUCTIONS.map((d, i) => (
               <article key={i} className="is-ded-card">
-                <div className="is-ded-icon" aria-hidden="true">{d.icon}</div>
-                <div>
-                  <h3 className="is-ded-name">{d.title}</h3>
-                  <p className="is-ded-desc">{d.desc}</p>
+                <div className="is-ded-top">
+                  <div className="is-ded-icon" aria-hidden="true">{d.icon}</div>
+                  <div className="is-ded-header">
+                    <span className="is-ded-tag" style={{ background: d.tagColor }}>{d.tag}</span>
+                    <h3 className="is-ded-name">{d.title}</h3>
+                  </div>
                 </div>
+                <div className="is-ded-highlight">{d.highlight}</div>
+                <p className="is-ded-desc">{d.desc}</p>
               </article>
             ))}
           </div>
